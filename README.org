@@ -1,5 +1,4 @@
-#+title: Readme
-* fetch_moots
+#+title: Fetch moots
 
 Download Twitter mutual followers' profile pictures.
 
