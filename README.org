@@ -6,6 +6,10 @@ This lets you use get them very quickly, so you can make garbage tier lists and 
 
 Chaos time.
 
+All of these implementations are deliberately shit (okay the Python one is not that bad).
+No good developer in their right mind makes 293489 chars long Go lines where half the words
+are interface.
+
 ** License
 
 This project is licensed under the Fair License.
