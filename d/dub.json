@@ -1,0 +1,13 @@
+{
+	"authors": [
+		"Lukas Hozda"
+	],
+	"copyright": "Copyright © 2024, Lukas Hozda",
+	"dependencies": {
+		"asdf": "~>0.7.17",
+		"requests": "~>2.1.3"
+	},
+	"description": "Fetch your Twitter mutuals' profile pictures",
+	"license": "Fair",
+	"name": "fetch_moots"
+}

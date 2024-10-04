@@ -1,0 +1,16 @@
+.dub
+docs.json
+__dummy.html
+docs/
+/fetch_moots
+fetch_moots.so
+fetch_moots.dylib
+fetch_moots.dll
+fetch_moots.a
+fetch_moots.lib
+fetch_moots-test-*
+*.exe
+*.pdb
+*.o
+*.obj
+*.lst
