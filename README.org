@@ -15,10 +15,24 @@ This project is licensed under the Fair License.
 
 #+begin_src
 .
+├── d
+│   ├── dub.json
+│   ├── dub.selections.json
+│   └── source
+│       └── app.d
+├── go
+│   ├── fetch_moots
+│   ├── go.mod
+│   └── main.go
 ├── nim
 │   ├── fetch_moots.nimble
 │   └── src
 │       └── fetch_moots.nim
+├── ocaml
+│   ├── dune
+│   ├── dune-project
+│   ├── fetch_moots.ml
+│   └── opam
 ├── python
 │   └── fetch-moots.py
 ├── rust
@@ -93,6 +107,61 @@ nimble build -d:ssl -d:release
 #+begin_src sh
 cd nim
 ./fetch_moots ../test/Followers1 ../test/Followers2 --folder:output
+#+end_src
+
+*** D
+
+**** Requirements
+- D compiler (DMD)
+- DUB (D's package manager)
+
+**** Installation
+#+begin_src sh
+cd d
+dub build --build=release
+#+end_src
+
+**** Running
+#+begin_src sh
+cd d
+./fetch_moots ../test/Followers1 ../test/Followers2 --folder=output
+#+end_src
+
+*** Go
+
+**** Requirements
+- Go (1.16 or later recommended)
+
+**** Installation
+#+begin_src sh
+cd go
+go build
+#+end_src
+
+**** Running
+#+begin_src sh
+cd go
+./fetch_moots --folder output ../test/Followers1 ../test/Followers2
+#+end_src
+
+*** OCaml
+
+**** Requirements
+- OCaml (4.08.0 or later)
+- OPAM (OCaml Package Manager)
+- Dune (build system for OCaml)
+
+**** Installation
+#+begin_src sh
+cd ocaml
+opam install . --deps-only
+dune build
+#+end_src
+
+**** Running
+#+begin_src sh
+cd ocaml
+dune exec ./fetch_moots.exe -- --folder output ../test/Followers1 ../test/Followers2
 #+end_src
 
 ** Usage
