@@ -1,0 +1,125 @@
+#+title: Readme
+* fetch_moots
+
+Download Twitter mutual followers' profile pictures.
+
+This lets you use get them very quickly, so you can make garbage tier lists and such.
+
+Chaos time.
+
+** License
+
+This project is licensed under the Fair License.
+
+** Project Structure
+
+#+begin_src
+.
+├── nim
+│   ├── fetch_moots.nimble
+│   └── src
+│       └── fetch_moots.nim
+├── python
+│   └── fetch-moots.py
+├── rust
+│   ├── Cargo.lock
+│   ├── Cargo.toml
+│   └── src
+│       └── main.rs
+└── test
+    ├── Followers1
+    ├── Followers2
+    ...
+    └── Followers15
+#+end_src
+
+** Obtaining Follower Files
+
+To get the necessary JSON files:
+1. Open the list of people you're Following in your browser with the console open
+2. Go to the Network tab in the console
+3. Filter the network requests to ones that start with "Following?variables="
+4. Download these JSON responses
+5. Place the downloaded files in the =test= directory
+
+** Implementations
+
+*** Python
+
+**** Requirements
+- Python 3.7+
+- requests library
+
+**** Installation
+#+begin_src sh
+pip install requests
+#+end_src
+
+**** Running
+#+begin_src sh
+python python/fetch-moots.py test/Followers1 test/Followers2 --folder output
+#+end_src
+
+*** Rust
+
+**** Requirements
+- Rust and Cargo
+
+**** Installation
+#+begin_src sh
+cd rust
+cargo build --release
+#+end_src
+
+**** Running
+#+begin_src sh
+cd rust
+cargo run --release -- ../test/Followers1 ../test/Followers2 --folder output
+#+end_src
+
+*** Nim
+
+**** Requirements
+- Nim
+- Nimble
+
+**** Installation
+#+begin_src sh
+cd nim
+nimble build -d:ssl -d:release
+#+end_src
+
+**** Running
+#+begin_src sh
+cd nim
+./fetch_moots ../test/Followers1 ../test/Followers2 --folder:output
+#+end_src
+
+** Usage
+
+For all implementations, the basic usage is:
+
+#+begin_src
+fetch_moots [FILES] --folder OUTPUT_FOLDER
+#+end_src
+
+- [FILES]: One or more Followers JSON files
+- --folder: (Optional) Specify the output folder for downloaded images. Default is "mutuals".
+
+The program will process the specified Followers files, identify mutual followers, and download their profile pictures to the specified folder.
+
+** Note
+
+Ensure you have the necessary permissions and comply with Twitter's terms of service when using this tool.
+
+** License Text
+
+#+begin_src
+Fair License
+
+Copyright (c) 2024 Lukáš Hozda aka UNC SUPERMAN
+
+Usage of the works is permitted provided that this instrument is retained with the works, so that any entity that uses the works is notified of this instrument.
+
+DISCLAIMER: THE WORKS ARE WITHOUT WARRANTY.
+#+end_src
