@@ -1,0 +1,3 @@
+(executable
+ (name fetch_moots)
+ (libraries yojson cohttp-lwt-unix cmdliner lwt lwt_ssl str))

@@ -1,0 +1,22 @@
+opam-version: "2.0"
+name: "fetch_moots"
+version: "1.0"
+synopsis: "Download Twitter mutual followers' profile pictures"
+description: "A tool to process Twitter followers JSON files and download profile pictures of mutual followers"
+maintainer: "Your Name <your.email@example.com>"
+authors: "Your Name <your.email@example.com>"
+license: "Fair"
+homepage: "https://github.com/yourusername/fetch_moots"
+bug-reports: "https://github.com/yourusername/fetch_moots/issues"
+depends: [
+  "ocaml" {>= "4.08.0"}
+  "dune" {>= "2.9.0"}
+  "yojson" {>= "1.7.0"}
+  "cohttp-lwt-unix" {>= "2.5.0"}
+  "cmdliner" {>= "1.0.0"}
+  "lwt" {>= "5.4.0"}
+  "lwt_ssl" {>= "1.2.0"}
+]
+build: [
+  ["dune" "build" "-p" name "-j" jobs]
+]
