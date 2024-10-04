@@ -71,7 +71,7 @@ fn extract_user_info(entry: &Value) -> Option<UserInfo> {
     entry["content"]["itemContent"]["user_results"]["result"]
         ["legacy"]
         .as_object()
-        .map(|user| {
+        .and_then(|user| {
             let username = user["screen_name"]
                 .as_str()
                 .unwrap_or("")
@@ -83,8 +83,9 @@ fn extract_user_info(entry: &Value) -> Option<UserInfo> {
                 .to_string();
             profile_image_url =
                 profile_image_url.replace("_normal", "");
-            let is_mutual = user["followed_by"]
-                .as_bool()
+            let is_mutual = user
+                .get("followed_by")
+                .and_then(|x| x.as_bool())
                 .unwrap_or(false)
                 && user["following"].as_bool().unwrap_or(false);
 
@@ -97,7 +98,6 @@ fn extract_user_info(entry: &Value) -> Option<UserInfo> {
                 None
             }
         })
-        .flatten()
 }
 
 fn find_all_entries(instructions: &[Value]) -> Vec<Value> {
