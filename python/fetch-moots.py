@@ -7,6 +7,13 @@ import argparse
 from typing import List, Dict, Optional
 from itertools import chain
 
+"""
+Listen bro, I offer you disgusting Python code,
+but hey, at least it has type hints.
+
+You can thank me later.
+"""
+
 def extract_user_info(entry: Dict) -> Dict:
     user = entry['content']['itemContent']['user_results']['result']
     return {
